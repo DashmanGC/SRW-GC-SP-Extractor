@@ -746,6 +746,9 @@ public class Main {
         path += "/" + file_path;
         try {
             RandomAccessFile other = new RandomAccessFile(path, "rw");
+            
+            // Truncate the file (in case we're overwriting)
+            other.setLength(0);
 
             other.write(data);
 
@@ -864,6 +867,9 @@ public class Main {
         path += "/" + file_path;
         try {
             RandomAccessFile bmp = new RandomAccessFile(path, "rw");
+            
+            // Truncate the file (in case we're overwriting)
+            bmp.setLength(0);
 
             bmp.write(header);
             bmp.write(CLUT);
